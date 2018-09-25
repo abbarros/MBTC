@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import br.com.api.data.client.DataClient;
 import br.com.api.data.model.TickerResponse;
 import br.com.api.history.domain.Ticker;
-import br.com.api.history.repository.TickerHistoryRepository;
+import br.com.api.history.service.TickerHistoryService;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -13,15 +13,19 @@ import lombok.RequiredArgsConstructor;
 public class DataService {
 	
 	private final DataClient data;
-	private final TickerHistoryRepository repository;
+	private final TickerHistoryService service;
 	
 	public TickerResponse ticker() {
+		Ticker lastTicker = service.lastTicker();
+		
 		TickerResponse ticker = data.ticker();
 		this.save(ticker);
 		
+		execute(lastTicker, ticker);
+		
 		return ticker;
 	}
-	
+
 	private void save(TickerResponse ticker) {
 		Ticker entity = Ticker.builder()
 			.last(ticker.getTicker().getLast())
@@ -30,7 +34,11 @@ public class DataService {
 			.date(ticker.getTicker().getDate())
 			.build();
 		
-		repository.save(entity);
+		service.save(entity);
+	}
+	
+	private void execute(Ticker lastTicker, TickerResponse ticker) {
+		
 	}
 
 }

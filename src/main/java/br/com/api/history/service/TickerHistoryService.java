@@ -13,9 +13,17 @@ import lombok.RequiredArgsConstructor;
 public class TickerHistoryService {
 	
 	private final TickerHistoryRepository repository;
+	
+	public Ticker save(Ticker entity) {
+		return repository.save(entity);
+	}
 
 	public Collection<Ticker> historyTicker() {
 		return repository.findAll();
+	}
+	
+	public Ticker lastTicker() {
+		return repository.findFirstByOrderByDateDesc();
 	}
 
 }
