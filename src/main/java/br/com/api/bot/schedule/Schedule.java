@@ -1,4 +1,4 @@
-package br.com.api.schedule;
+package br.com.api.bot.schedule;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
