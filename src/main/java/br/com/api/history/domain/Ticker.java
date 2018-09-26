@@ -25,5 +25,9 @@ public class Ticker {
 	private BigDecimal high;
 	private BigDecimal low;
 	private LocalDateTime date;
+	
+	public String get_id() {
+		return _id.toHexString();
+	}
 
 }

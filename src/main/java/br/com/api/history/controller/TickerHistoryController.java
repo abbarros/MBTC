@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.api.history.domain.Ticker;
-import br.com.api.history.service.TickerHistoryService;
+import br.com.api.history.service.HistoryService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
 public class TickerHistoryController {
 	
-	private final TickerHistoryService historyService;
+	private final HistoryService historyService;
 	
 	@GetMapping(value ="/history/ticker", produces = { MediaType.APPLICATION_JSON_VALUE})
 	ResponseEntity<Collection<Ticker>> ticker() throws Exception {
 		try {
-			Collection<Ticker> ticker = historyService.historyTicker();
+			Collection<Ticker> ticker = historyService.findAll();
 			return ResponseEntity.ok().body(ticker);
 		} catch(final RuntimeException e) {
 			e.printStackTrace();

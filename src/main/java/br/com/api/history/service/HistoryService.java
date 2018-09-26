@@ -10,20 +10,20 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class TickerHistoryService {
+public class HistoryService {
 	
-	private final TickerHistoryRepository repository;
+	private final TickerHistoryRepository ticker;
 	
 	public Ticker save(Ticker entity) {
-		return repository.save(entity);
+		return ticker.save(entity);
 	}
-
-	public Collection<Ticker> historyTicker() {
-		return repository.findAll();
+	
+	public Collection<Ticker> findAll() {
+		return ticker.findAllByOrderByDateDesc();
 	}
 	
 	public Ticker lastTicker() {
-		return repository.findFirstByOrderByDateDesc();
+		 return ticker.findFirstByOrderByDateDesc();
 	}
 
 }

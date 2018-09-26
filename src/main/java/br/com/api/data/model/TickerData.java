@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TickerResponse {
+public class TickerData {
 	
 	private Ticker ticker;
 	
