@@ -10,3 +10,7 @@ spring:
 bot:
   token: 608616410:AAHN6LYIDcb7G6mRUjyLPT7A9BHQYDEddec
   username: abbarros_bot
+  
+barros:
+  key: {}
+  secret: {}
