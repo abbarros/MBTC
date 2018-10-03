@@ -1,4 +1,4 @@
-package br.com.api.trading.domain;
+package br.com.api.trading.mapper;
 
 import java.math.BigDecimal;
 

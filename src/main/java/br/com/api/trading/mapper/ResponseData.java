@@ -1,4 +1,4 @@
-package br.com.api.trading.domain;
+package br.com.api.trading.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

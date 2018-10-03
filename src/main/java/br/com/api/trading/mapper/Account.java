@@ -1,6 +1,4 @@
-package br.com.api.trading.domain;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package br.com.api.trading.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Account {
 	
-	@JsonProperty("response_data")
 	private ResponseData response_data;
+	private Long status_code;
+	private String error_message;
 
 }
 
